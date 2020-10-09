@@ -1,0 +1,16 @@
+<head>
+	<title>구역 선택</title>
+</head>
+
+<body>
+	{% if receive_list %}
+		<ul>
+			<li><div class="title"><a href="/polls/1/">{{ "A 구역" }}</a></li>
+			<li><div class="title"><a href="/polls/2/">{{ "B 구역" }}</a></li>
+			<li><div class="title"><a href="/polls/3/">{{ "C 구역" }}</a></li>
+			<li><div class="title"><a href="/polls/4/">{{ "D 구역" }}</a></li>	
+		</ul>
+	{% else %}
+		<p>No polls are available.</p>
+	{% endif %}
+</body>

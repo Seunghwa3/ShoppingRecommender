@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>세부사항</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<h1>{{ receive.area }} 구역</h1>
+	<table class="table table-striped">
+		<form action="{% url 'polls:list' receive.id %}" method="post">
+			<thead>
+			<tr>
+				<td><B>제품명</B></td>
+				<td><B>가격 (원)</B></td>
+				<td><B>세부사항</B></td>
+			</tr>
+			</thead>
+			<tbody>
+			{% csrf_token %}
+			{% for send in receive.send_set.all %}
+			<tr>
+				<td>{{ send.product_name }}</td>
+				<td>{{ send.price }}</td>
+				<td>{{ send.detail }}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</form>
+	</table>
+
+	<div class>
+		<form action="{% url 'polls:add' receive.id %}" method="post">
+		{% csrf_token %}
+			<input type="submit" value="추가">
+		</form>
+		<form action="{% url 'polls:posts' receive.id %}" method="post">
+		{% csrf_token %}
+			<input type="submit" value="전송">
+		</form>
+	
+</body>

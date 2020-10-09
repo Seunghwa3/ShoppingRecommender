@@ -1,0 +1,20 @@
+<head>
+	<title>추가</title>
+</head>
+
+<body>
+	<h1>{{ receive.area }} 구역</h1>
+
+	<ul>
+		<form action="list" method="post">
+		 	{% comment %}
+		 		{{ form.as_table }}
+		 		{{ form.as_p }}
+		 		{{ form.as_ul }}
+		 	{% endcomment %}
+		 	{{ form.as_p }}
+		 	{% csrf_token %}
+			<input type="submit" value="추가">
+		</form>
+	</ul>
+</body>
