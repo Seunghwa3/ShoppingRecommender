@@ -61,7 +61,7 @@
                                                 <rect key="frame" x="154" y="0.0" width="146" height="30"/>
                                                 <state key="normal" title="회원가입"/>
                                                 <connections>
-                                                    <segue destination="4Wm-k5-DeJ" kind="show" id="qJm-Gs-jO7"/>
+                                                    <segue destination="4Wm-k5-DeJ" kind="show" id="WBH-w5-Ws2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -77,6 +77,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="스마트 쇼핑" id="Cdx-RT-8dH"/>
+                    <connections>
+                        <outlet property="idTextField" destination="lRX-vd-Du8" id="3Fp-fy-lkx"/>
+                        <outlet property="passwordTextField" destination="Cas-za-qAq" id="emy-bu-3Yc"/>
+                        <outlet property="signInButton" destination="NJ5-xo-F6m" id="rvW-RJ-IFI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,40 +90,43 @@
         <!--회원가입-->
         <scene sceneID="Gor-oW-TlD">
             <objects>
-                <viewController id="4Wm-k5-DeJ" sceneMemberID="viewController">
+                <viewController id="4Wm-k5-DeJ" customClass="SignUpViewController" customModule="ShoppingRecommender" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a9Z-Ru-kY0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MHF-jE-4m7">
-                                <rect key="frame" x="20" y="138" width="374" height="492.5"/>
+                                <rect key="frame" x="20" y="138" width="374" height="450.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eGv-st-5Td">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="202"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="160"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euk-Xm-0zq">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-s4-RRa">
-                                                <rect key="frame" x="0.0" y="42" width="374" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="idDidChange:" destination="4Wm-k5-DeJ" eventType="editingChanged" id="p85-Q0-unR"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uwp-PE-8ha">
-                                                <rect key="frame" x="0.0" y="84" width="374" height="34"/>
+                                                <rect key="frame" x="0.0" y="42" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="passwordDidChange:" destination="4Wm-k5-DeJ" eventType="editingChanged" id="HyS-4n-xYE"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4QU-CJ-wbn">
-                                                <rect key="frame" x="0.0" y="126" width="374" height="34"/>
+                                                <rect key="frame" x="0.0" y="84" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="checkPasswordDidChange:" destination="4Wm-k5-DeJ" eventType="editingChanged" id="8v7-ok-VNP"/>
+                                                </connections>
                                             </textField>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yNO-Vv-6bd">
-                                                <rect key="frame" x="0.0" y="168" width="374" height="35"/>
+                                                <rect key="frame" x="0.0" y="126" width="374" height="35"/>
                                                 <segments>
                                                     <segment title="남"/>
                                                     <segment title="여"/>
@@ -127,7 +135,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yqR-ER-nPP">
-                                        <rect key="frame" x="0.0" y="210" width="374" height="282.5"/>
+                                        <rect key="frame" x="0.0" y="168" width="374" height="282.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fps-CG-tQm">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
@@ -151,6 +159,9 @@
                                                 <subviews>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="fdu-Fe-6rP">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="216"/>
+                                                        <connections>
+                                                            <action selector="didDatePickerValueChanged:" destination="4Wm-k5-DeJ" eventType="valueChanged" id="o73-kn-dKz"/>
+                                                        </connections>
                                                     </datePicker>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NTy-Nv-D1i">
                                                         <rect key="frame" x="0.0" y="224" width="374" height="30"/>
@@ -162,6 +173,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzy-u4-1Od">
                                                                 <rect key="frame" x="191" y="0.0" width="183" height="30"/>
                                                                 <state key="normal" title="가입"/>
+                                                                <connections>
+                                                                    <action selector="pushSignUpButton:" destination="4Wm-k5-DeJ" eventType="touchUpInside" id="X1K-JA-o8X"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -182,18 +196,59 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="회원가입" id="H6v-oq-poK"/>
+                    <connections>
+                        <outlet property="birthDatePicker" destination="fdu-Fe-6rP" id="gjU-7u-Cd2"/>
+                        <outlet property="birthLabel" destination="zNc-Rc-ZPL" id="TRp-75-Qmn"/>
+                        <outlet property="cancelButton" destination="y1y-B1-kkE" id="2v7-1h-1eZ"/>
+                        <outlet property="confirmPasswordTextField" destination="4QU-CJ-wbn" id="01p-4X-u2g"/>
+                        <outlet property="idTextField" destination="gGh-s4-RRa" id="eDp-a8-kgd"/>
+                        <outlet property="passwordTextField" destination="Uwp-PE-8ha" id="xi9-mc-jLs"/>
+                        <outlet property="sexSegment" destination="yNO-Vv-6bd" id="np1-Zi-yOa"/>
+                        <outlet property="signUpButton" destination="Bzy-u4-1Od" id="upC-Rl-gDI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJm-KI-PhD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1721.7391304347827" y="135.9375"/>
+            <point key="canvasLocation" x="1751" y="136"/>
         </scene>
         <!--메인 화면-->
         <scene sceneID="hqH-lX-ShU">
             <objects>
-                <viewController id="EmB-va-iBd" sceneMemberID="viewController">
+                <viewController id="EmB-va-iBd" customClass="MainViewController" customModule="ShoppingRecommender" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Urt-Ie-wlw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="환영합니다 ... 회원님" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AP1-gg-sGI">
+                                <rect key="frame" x="116" y="159" width="165" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bhO-JF-bL3">
+                                <rect key="frame" x="65" y="283" width="285" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재의 위치에서 상품 추천" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXK-qA-aLB">
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m17-Ew-v4h">
+                                        <rect key="frame" x="0.0" y="41.5" width="285" height="33.5"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <state key="normal" title="상품 추천 받기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="H0r-im-l3L" kind="show" id="ZX7-mr-ns2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ejp-M9-M7S"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -201,7 +256,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVj-WQ-Tdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="858"/>
+            <point key="canvasLocation" x="1048" y="820"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TUq-Wy-TMP">
+            <objects>
+                <viewController id="H0r-im-l3L" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jyd-5j-hTD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Va7-3y-Rxw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ngr-wj-pJz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LtM-X7-Qgm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1778" y="820"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Ea-2w-iYJ">
@@ -219,13 +290,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKc-P8-eHY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
+            <point key="canvasLocation" x="346" y="136"/>
         </scene>
     </scenes>
     <resources>
         <image name="shoppingirl-index-1593119935" width="980" height="980"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
